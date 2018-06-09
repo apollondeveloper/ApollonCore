@@ -1,19 +1,19 @@
 [Unit]
-Description=PIVX's distributed currency daemon
+Description=Apollon's distributed currency daemon
 After=network.target
 
 [Service]
-User=pivx
-Group=pivx
+User=apollon
+Group=apollon
 
 Type=forking
-PIDFile=/var/lib/pivxd/pivxd.pid
+PIDFile=/var/lib/apollond/apollond.pid
 
-ExecStart=/usr/bin/pivxd -daemon -pid=/var/lib/pivxd/pivxd.pid \
-          -conf=/etc/pivx/pivx.conf -datadir=/var/lib/pivxd
+ExecStart=/usr/bin/apollond -daemon -pid=/var/lib/apollond/apollond.pid \
+          -conf=/etc/apollon/apollon.conf -datadir=/var/lib/apollond
 
-ExecStop=-/usr/bin/pivx-cli -conf=/etc/pivx/pivx.conf \
-         -datadir=/var/lib/pivxd stop
+ExecStop=-/usr/bin/apollon-cli -conf=/etc/apollon/apollon.conf \
+         -datadir=/var/lib/apollond stop
 
 Restart=always
 PrivateTmp=true

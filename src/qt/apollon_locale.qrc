@@ -1,0 +1,35 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/translations">
+        <file alias="bg">locale/apollon_bg.qm</file>
+        <file alias="ca">locale/apollon_ca.qm</file>
+        <file alias="cs">locale/apollon_cs.qm</file>
+        <file alias="da">locale/apollon_da.qm</file>
+        <file alias="de">locale/apollon_de.qm</file>
+        <file alias="en">locale/apollon_en.qm</file>
+        <file alias="en_US">locale/apollon_en_US.qm</file>
+        <file alias="es">locale/apollon_es.qm</file>
+        <file alias="es_ES">locale/apollon_es_ES.qm</file>
+        <file alias="fi">locale/apollon_fi.qm</file>
+        <file alias="fr_FR">locale/apollon_fr_FR.qm</file>
+        <file alias="hi_IN">locale/apollon_hi_IN.qm</file>
+        <file alias="hr">locale/apollon_hr.qm</file>
+        <file alias="hr_HR">locale/apollon_hr_HR.qm</file>
+        <file alias="it">locale/apollon_it.qm</file>
+        <file alias="ja">locale/apollon_ja.qm</file>
+        <file alias="ko_KR">locale/apollon_ko_KR.qm</file>
+        <file alias="lt_LT">locale/apollon_lt_LT.qm</file>
+        <file alias="nl">locale/apollon_nl.qm</file>
+        <file alias="pl">locale/apollon_pl.qm</file>
+        <file alias="pt">locale/apollon_pt.qm</file>
+        <file alias="pt_BR">locale/apollon_pt_BR.qm</file>
+        <file alias="ro_RO">locale/apollon_ro_RO.qm</file>
+        <file alias="ru">locale/apollon_ru.qm</file>
+        <file alias="sk">locale/apollon_sk.qm</file>
+        <file alias="sv">locale/apollon_sv.qm</file>
+        <file alias="tr">locale/apollon_tr.qm</file>
+        <file alias="uk">locale/apollon_uk.qm</file>
+        <file alias="vi">locale/apollon_vi.qm</file>
+        <file alias="zh_CN">locale/apollon_zh_CN.qm</file>
+        <file alias="zh_TW">locale/apollon_zh_TW.qm</file>
+    </qresource>
+</RCC>

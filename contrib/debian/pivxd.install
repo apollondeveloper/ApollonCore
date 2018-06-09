@@ -1,2 +1,2 @@
-usr/local/bin/pivxd usr/bin
-usr/local/bin/pivx-cli usr/bin
+usr/local/bin/apollond usr/bin
+usr/local/bin/apollon-cli usr/bin
