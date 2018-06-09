@@ -8,7 +8,6 @@
 #include <QDialog>
 #include <QTreeWidgetItem>
 #include "primitives/zerocoin.h"
-#include "privacydialog.h"
 
 class CZerocoinMint;
 class WalletModel;
@@ -34,7 +33,6 @@ public:
 private:
     Ui::ZXapControlDialog *ui;
     WalletModel* model;
-    PrivacyDialog* privacyDialog;
 
     void updateList();
     void updateLabels();
