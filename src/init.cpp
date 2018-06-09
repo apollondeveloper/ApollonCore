@@ -1657,7 +1657,7 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
         fVerifyingBlocks = false;
 
         //Inititalize zXAPWallet
-        uiInterface.InitMessage(_("Syncing zXAP wallet..."));
+        uiInterface.InitMessage(_("Syncing XAP wallet..."));
 
         bool fEnableZXapBackups = GetBoolArg("-backupzxap", true);
         pwalletMain->setZXapAutoBackups(fEnableZXapBackups);
