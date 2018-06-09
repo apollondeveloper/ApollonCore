@@ -253,7 +253,6 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
     // Only show most balances if they are non-zero for the sake of simplicity
     QSettings settings;
     bool settingShowAllBalances = !settings.value("fHideZeroBalances").toBool();
-    bool showSumAvailable = settingShowAllBalances || sumTotalBalance != availableTotalBalance;
     bool showXAPAvailable = settingShowAllBalances || xapAvailableBalance != nTotalBalance;
     bool showWatchOnlyXAPAvailable = watchOnlyBalance != nTotalWatchBalance;
     bool showXAPPending = settingShowAllBalances || unconfirmedBalance != 0;
@@ -275,10 +274,6 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
     ui->labelImmature->setVisible(showImmature || showWatchOnlyImmature); // for symmetry reasons also show immature label when the watch-only one is shown
     ui->labelImmatureText->setVisible(showImmature || showWatchOnlyImmature);
     ui->labelWatchImmature->setVisible(showImmature && showWatchOnly); // show watch-only immature balance
-    bool showzXAPAvailable = settingShowAllBalances || zerocoinBalance != matureZerocoinBalance;
-    bool showzXAPUnconfirmed = settingShowAllBalances || unconfirmedZerocoinBalance != 0;
-    bool showzXAPImmature = settingShowAllBalances || immatureZerocoinBalance != 0;
-    bool showPercentages = ! (zerocoinBalance == 0 && nTotalBalance == 0);
 
     static int cachedTxLocks = 0;
 
