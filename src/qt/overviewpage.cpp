@@ -238,20 +238,6 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
     ui->labelWatchLocked->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, nWatchOnlyLockedBalance, false, BitcoinUnits::separatorAlways));
     ui->labelWatchTotal->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, nTotalWatchBalance, false, BitcoinUnits::separatorAlways));
 
-    // zXAP labels
-    ui->labelzBalance->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, zerocoinBalance, false, BitcoinUnits::separatorAlways));
-    ui->labelzBalanceUnconfirmed->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, unconfirmedZerocoinBalance, false, BitcoinUnits::separatorAlways));
-    ui->labelzBalanceMature->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, matureZerocoinBalance, false, BitcoinUnits::separatorAlways));
-    ui->labelzBalanceImmature->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, immatureZerocoinBalance, false, BitcoinUnits::separatorAlways));
-
-    // Combined labels
-    ui->labelBalancez->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, availableTotalBalance, false, BitcoinUnits::separatorAlways));
-    ui->labelTotalz->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, sumTotalBalance, false, BitcoinUnits::separatorAlways));
-
-    // Percentage labels
-    ui->labelXAPPercent->setText(sPercentage);
-    ui->labelzXAPPercent->setText(szPercentage);
-
     // Adjust bubble-help according to AutoMint settings
     QString automintHelp = tr("Current percentage of zXAP.\nIf AutoMint is enabled this percentage will settle around the configured AutoMint percentage (default = 10%).\n");
     bool fEnableZeromint = GetBoolArg("-enablezeromint", true);
@@ -268,8 +254,6 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
     QSettings settings;
     bool settingShowAllBalances = !settings.value("fHideZeroBalances").toBool();
     bool showSumAvailable = settingShowAllBalances || sumTotalBalance != availableTotalBalance;
-    ui->labelBalanceTextz->setVisible(showSumAvailable);
-    ui->labelBalancez->setVisible(showSumAvailable);
     bool showXAPAvailable = settingShowAllBalances || xapAvailableBalance != nTotalBalance;
     bool showWatchOnlyXAPAvailable = watchOnlyBalance != nTotalWatchBalance;
     bool showXAPPending = settingShowAllBalances || unconfirmedBalance != 0;
@@ -294,15 +278,7 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
     bool showzXAPAvailable = settingShowAllBalances || zerocoinBalance != matureZerocoinBalance;
     bool showzXAPUnconfirmed = settingShowAllBalances || unconfirmedZerocoinBalance != 0;
     bool showzXAPImmature = settingShowAllBalances || immatureZerocoinBalance != 0;
-    ui->labelzBalanceMature->setVisible(showzXAPAvailable);
-    ui->labelzBalanceMatureText->setVisible(showzXAPAvailable);
-    ui->labelzBalanceUnconfirmed->setVisible(showzXAPUnconfirmed);
-    ui->labelzBalanceUnconfirmedText->setVisible(showzXAPUnconfirmed);
-    ui->labelzBalanceImmature->setVisible(showzXAPImmature);
-    ui->labelzBalanceImmatureText->setVisible(showzXAPImmature);
     bool showPercentages = ! (zerocoinBalance == 0 && nTotalBalance == 0);
-    ui->labelXAPPercent->setVisible(showPercentages);
-    ui->labelzXAPPercent->setVisible(showPercentages);
 
     static int cachedTxLocks = 0;
 

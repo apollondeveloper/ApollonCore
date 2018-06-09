@@ -22,7 +22,6 @@ ZXapControlDialog::ZXapControlDialog(QWidget *parent) :
 {
     ui->setupUi(this);
     setMints.clear();
-    privacyDialog = (PrivacyDialog*)parent;
 
     // click on checkbox
     connect(ui->treeWidget, SIGNAL(itemChanged(QTreeWidgetItem*, int)), this, SLOT(updateSelection(QTreeWidgetItem*, int)));
@@ -162,8 +161,6 @@ void ZXapControlDialog::updateLabels()
     ui->labelZXap_int->setText(QString::number(nAmount));
     ui->labelQuantity_int->setText(QString::number(setSelectedMints.size()));
 
-    //update PrivacyDialog labels
-    privacyDialog->setZXapControlLabels(nAmount, setSelectedMints.size());
 }
 
 std::vector<CMintMeta> ZXapControlDialog::GetSelectedMints()
