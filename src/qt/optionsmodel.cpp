@@ -345,11 +345,6 @@ bool OptionsModel::setData(const QModelIndex& index, const QVariant& value, int 
             emit hideZeroBalancesChanged(fHideZeroBalances);
             break;
 
-        case AnonymizeXapxAmount:
-            nAnonymizeXapxAmount = value.toInt();
-            settings.setValue("nAnonymizeXapxAmount", nAnonymizeXapxAmount);
-            emit anonymizeXapxAmountChanged(nAnonymizeXapxAmount);
-            break;
         case CoinControlFeatures:
             fCoinControlFeatures = value.toBool();
             settings.setValue("fCoinControlFeatures", fCoinControlFeatures);
