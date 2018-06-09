@@ -251,7 +251,7 @@ QPushButton:focus {
 QPushButton:pressed {
 background-color: #0072A1;
 border:1px solid #000000;
-background-color: qlineargradient(y1:0, y2: 1, stop: 0 #00ff00, stop: 0.1 #00ff00, stop: 0.101 #0487BE, stop: 0.9 #0487BE, stop: 0.901 #00ff00, stop: 1 #00ff00);
+background-color: qlineargradient(y1:0, y2: 1, stop: 0 #D7D7D7, stop: 0.1 #D7D7D7, stop: 0.101 #0487BE, stop: 0.9 #0487BE, stop: 0.901 #D7D7D7, stop: 1 #D7D7D7);
 }
 
 /* Special handling for statusbar-icons (which are partly QPushButtons) */

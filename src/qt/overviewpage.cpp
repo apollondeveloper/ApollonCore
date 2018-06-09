@@ -220,9 +220,6 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
     QString szPercentage = "";
     QString sPercentage = "";
     getPercentage(nUnlockedBalance, zerocoinBalance, sPercentage, szPercentage);
-    // Combined balances
-    CAmount availableTotalBalance = xapAvailableBalance + matureZerocoinBalance;
-    CAmount sumTotalBalance = nTotalBalance + zerocoinBalance;
 
     // XAP labels
     ui->labelBalance->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, xapAvailableBalance, false, BitcoinUnits::separatorAlways));
