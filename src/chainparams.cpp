@@ -171,7 +171,7 @@ public:
         assert(hashGenesisBlock == uint256("0x00000a0e5cfebfd4c7964b91eb077ae5733745ce3ae5d1775c3e6c660a360653"));
         assert(genesis.hashMerkleRoot == uint256("0x54035970cf6c65b614ef76dd55da5b0b13b7f24d5faf0d78a87b57134ba35047"));
 
-        vSeeds.push_back(CDNSSeedData("apollon.one", "seed.apollon.one"));     // Primary DNS Seeder 
+        vSeeds.push_back(CDNSSeedData("apolloncoin.io", "seed.apolloncoin.io"));     // Primary DNS Seeder 
         vSeeds.push_back(CDNSSeedData("0", "52.32.174.206"));
         vSeeds.push_back(CDNSSeedData("1", "35.162.219.114"));
         vSeeds.push_back(CDNSSeedData("2", "52.41.181.185"));

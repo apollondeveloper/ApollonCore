@@ -193,19 +193,24 @@ bool IsBlockValueValid(const CBlock& block, CAmount nExpectedValue, CAmount nMin
         LogPrint("masternode","IsBlockValueValid() : WARNING: Couldn't find previous block\n");
     }
 
-    //LogPrintf("XX69----------> IsBlockValueValid(): nMinted: %d, nExpectedValue: %d\n", FormatMoney(nMinted), FormatMoney(nExpectedValue));
+  //LogPrintf("XX69----------> IsBlockValueValid(): nMinted: %d, nExpectedValue: %d\n", FormatMoney(nMinted), FormatMoney(nExpectedValue));
+
+    // prevent exploiting the 6k stake
+    CAmount nMaxMintValue = GetBlockValue(nHeight);
+    int stuckBlockHeight = 5000;
+
+    LogPrintf("nMinted: %s, nExpectedValue: %s, nMaxMintValue: %s\n", FormatMoney(nMinted), FormatMoney(nExpectedValue), FormatMoney(nMaxMintValue));
 
     if (!masternodeSync.IsSynced()) { //there is no budget data to use to check anything
         //super blocks will always be on these blocks, max 100 per budgeting
         if (nHeight % GetBudgetPaymentCycleBlocks() < 100) {
             return true;
         } else {
-            if (nMinted > nExpectedValue && (nHeight != 5000)) {
+            if ((nMinted > nExpectedValue && (nHeight != stuckBlockHeight)) || ((block == stuckBlockHeight) && nMinted > nMaxMintValue)) {
                 return false;
             }
         }
     } else { // we're synced and have data so check the budget schedule
-
         //are these blocks even enabled
         if (!IsSporkActive(SPORK_13_ENABLE_SUPERBLOCKS)) {
             return nMinted <= nExpectedValue;
@@ -215,7 +220,7 @@ bool IsBlockValueValid(const CBlock& block, CAmount nExpectedValue, CAmount nMin
             //the value of the block is evaluated in CheckBlock
             return true;
         } else {
-            if (nMinted > nExpectedValue && (nHeight != 5000)) {
+            if ((nMinted > nExpectedValue && (nHeight != stuckBlockHeight)) || ((block == stuckBlockHeight) && nMinted > nMaxMintValue)) {
                 return false;
             }
         }
