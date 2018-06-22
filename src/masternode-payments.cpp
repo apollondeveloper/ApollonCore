@@ -206,7 +206,7 @@ bool IsBlockValueValid(const CBlock& block, CAmount nExpectedValue, CAmount nMin
         if (nHeight % GetBudgetPaymentCycleBlocks() < 100) {
             return true;
         } else {
-            if ((nMinted > nExpectedValue && (nHeight != stuckBlockHeight)) || ((block == stuckBlockHeight) && nMinted > nMaxMintValue)) {
+            if ((nMinted > nExpectedValue && (nHeight != stuckBlockHeight)) || ((nHeight == stuckBlockHeight) && nMinted > nMaxMintValue)) {
                 return false;
             }
         }
@@ -220,7 +220,7 @@ bool IsBlockValueValid(const CBlock& block, CAmount nExpectedValue, CAmount nMin
             //the value of the block is evaluated in CheckBlock
             return true;
         } else {
-            if ((nMinted > nExpectedValue && (nHeight != stuckBlockHeight)) || ((block == stuckBlockHeight) && nMinted > nMaxMintValue)) {
+            if ((nMinted > nExpectedValue && (nHeight != stuckBlockHeight)) || ((nHeight == stuckBlockHeight) && nMinted > nMaxMintValue)) {
                 return false;
             }
         }
