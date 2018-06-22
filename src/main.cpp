@@ -1815,6 +1815,11 @@ int64_t GetBlockValue(int nHeight)
     int64_t nSubsidy = 0;
     if (nHeight < 10) {
         nSubsidy = 9400000 * COIN; // 94 mil premine split up into 10 blocks to avoid maxpayout limit
+    // } else if (nHeight < 6000 && nHeight >= 10) {
+    //     nSubsidy = 1 * COIN; // grace period to get everyone up and running
+    // } else if (nHeight < 7000 && nHeight >= 6000) {
+    //     nSubsidy = 640 * COIN; // chain stuck compensation
+    // } else if (nHeight < 50000 && nHeight >= 7000) {
     } else if (nHeight < 5000 && nHeight >= 10) {
         nSubsidy = 1 * COIN; // grace period to get everyone up and running
     } else if (nHeight < 50000 && nHeight >= 5000) {
